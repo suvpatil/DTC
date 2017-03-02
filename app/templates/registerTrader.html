@@ -1,0 +1,64 @@
+<div id="registerTraderDiv" ng-controller="registerTraderController as traderCtrl">
+    <div>
+        <label class=".col-md-4" style="width:20%;">Trader Name</label>
+        <input type="text" ng-model="traderCtrl.traderName"/>
+    </div>
+
+     <div>
+        <label class=".col-md-4" style="width:20%;">Street</label>
+        <input type="text" ng-model="traderCtrl.street"/>
+    </div>
+
+    <div>
+        <label class=".col-md-4" style="width:20%;">Street Number</label>
+        <input type="text" ng-model="traderCtrl.streetNumber"/>
+    </div>
+
+    <div>
+        <label class=".col-md-4" style="width:20%;">Postal Code</label>
+        <input type="text" ng-model="traderCtrl.postalCode"/>
+    </div>
+
+    <div>
+        <label class=".col-md-4" style="width:20%;">City</label>
+        <input type="text" ng-model="traderCtrl.city"/>
+    </div>
+
+    <div>
+        <label class=".col-md-4" style="width:20%;">Country</label>
+        <input type="text" ng-model="traderCtrl.country"/>
+    </div>
+
+    <div>
+        <label class=".col-md-4" style="width:20%;">Bank Name</label>
+         <select ng-model="traderCtrl.selectedBankName" class="contractDropDown">
+                <!--<option ng-repeat="x in names">{{x}}</option>-->
+                <option>KBC</option>
+                <option>HSBC</option>
+        </select>
+    </div>
+
+    <div>
+        <label class=".col-md-4" style="width:20%;">VAT</label>
+        <input type="text" ng-model="traderCtrl.vat"/>
+    </div>
+
+    <div>
+        <label class=".col-md-4" style="width:20%;">IBAN</label>
+        <input type="text" ng-model="traderCtrl.iban"/>
+    </div>
+
+     <div>
+        <label class=".col-md-4" style="width:20%;">Email (Username)</label>
+        <input type="text" ng-model="traderCtrl.email"/>
+    </div>
+
+    <div>
+        <label class=".col-md-4" style="width:20%;">Password</label>
+        <input type="password" ng-model="traderCtrl.password"/>
+    </div>
+
+     <div>
+        <button ng-click="traderCtrl.registerTrader()">Register Trader</button>
+    </div>
+</div>

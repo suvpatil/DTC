@@ -1,0 +1,39 @@
+[
+    {
+        "TRADER_LOGIN_USERNAME":"John Dheere",
+		"IS_BUYER":"true",
+		"IS_SELLER":" true",
+		"SELECTED_BUYER_NAME":"BOISSON",
+		"PURCHASE_ORDER":"po234",
+		"TOTAL_PRICE":"10",
+		"CURRENCY":"usd",
+		"DELIVERY_DATE":"2017/2/20",
+		"INCOTERM":"asd",
+		"PAYMENT_CONDITIONS":"yes",
+		"ARTICLE_ID1":"beer",
+		"ARTICLE_DESC1":"johny",
+		"ARTICLE_QUANTITY1":"12",
+		"ARTICLE_ID2":"wine",
+		"ARTICLE_DESC2":"redWine",
+		"ARTICLE_QUANTITY2":"12",
+		"BUYER_PAYMENT_CONFIRNMATION":"true",
+		"SELLER_INFO_COUNTER_PARTY":"false",
+		"BUYER_BANK_COMMITMENT":"false",
+		"SELLER_FOR_FAIT_INVOICE":"true",
+		"INVOICE_STATUS":"Not send",
+		"PAYMENT_STATUS":"Not confirmed",
+		"CONTRACT_STATUS":"Not started",
+		"DELIVERY_STATUS":"Point not reached",
+		"IS_ORDER_CONFIRM":"false",
+		"DELIVERY_TRACKING_ID":"123"
+
+    },
+    {
+        "PURCHASE_ORDER": "PO4444",
+        "SELECTED_BUYER_NAME": "BOISSON",
+        "TRADER_LOGIN_USERNAME": "John Dheere",
+        "DELIVERY_DATE": "Feb 20 , 2017",
+        "CONTRACT_STATUS": "Closed",
+        "DELIVERY_STATUS": "Nothing"
+    }
+]

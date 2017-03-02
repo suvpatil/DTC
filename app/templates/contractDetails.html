@@ -1,0 +1,31 @@
+<div id="contractDetailsDiv" ng-controller="contractDetailController as contractCtrl">
+    <h3>Contract Instances</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <th class=".col-md-2">Purchase Order</th>
+            <th class=".col-md-2">Buyer</th>
+            <th class=".col-md-2">Seller</th>
+            <th class=".col-md-2">Date</th>
+            <th class=".col-md-2">Status</th>
+            <th class=".col-md-2">Waiting for</th>
+            <th class=".col-md-2">Action</th>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="item in contractCtrl.contractDetailsList">
+                <td>{{item.PURCHASE_ORDER}}</td>
+                <td>{{item.SELECTED_BUYER_NAME}} </td>
+                <td>{{item.TRADER_LOGIN_USERNAME}} </td>
+                <td>{{item.DELIVERY_DATE}} </td>
+                <td>{{item.CONTRACT_STATUS}} </td>
+                <td>{{item.DELIVERY_STATUS}} </td>
+                <td><input type="button" value="Details" class="contractButton1" ng-click="contractCtrl.editContract(item.PURCHASE_ORDER)"/></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <button ng-click="contractCtrl.navigateToCreateContract()" ng-if="role == 'seller'">Create new contract</button>
+    </div>
+</div>       

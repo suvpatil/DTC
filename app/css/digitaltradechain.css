@@ -1,0 +1,122 @@
+.contractTable {
+    margin-top: 10px;
+    width: 83%;
+}
+
+.contractTable .heading1 {
+    width: 15%;
+    text-align: center;
+}
+
+.contractTable .heading2,
+.contractTable .heading3,
+.contractTable .heading4 {
+    width: 15%;
+    text-align: center;
+}
+
+.contractTable .heading5 {
+    width: 40%;
+    text-align: center;
+}
+
+.contractDropDown {
+    width: 50%;
+}
+
+.contractTable .contractRow {
+    text-align: center;
+}
+
+.contractList{
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+.contractList .listItem1 {
+    display: inline-block;
+}
+    
+.contractList li {
+    width: 25%;
+}
+
+.contractList .listItem1.contractCurrency strong {
+    display: none;
+}
+
+.contractList .contractListInput {
+    width: 25%;
+}
+
+.contractList .listItem1.contractLI {
+    margin-top: 10px;
+}
+
+.paymentConditions {
+    clear: both;
+    padding-top: 20px;
+}
+
+.paymentConditions .paymentText {
+    width: 83%;
+}
+
+.wrapperDiv {
+    border: solid 2px gray;
+    padding: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.contractHeading {
+    margin-left: 10px;
+}
+
+.contractArticle {
+    width: 83%;
+
+}
+
+.contractButton {
+    color: #ffffff;
+    background: #00bfff;
+    border: solid 1px #808080;
+    padding: 5px 20px;
+}
+
+.table-bordered.servicesTable,
+.table-bordered.servicesTable>thead>tr>th,
+.table-bordered.servicesTable>tbody>tr>td {
+    border: none;
+}
+
+.serviceCheckbox {
+    width: 15px;
+    height: 15px;
+}
+
+.contractClose {
+    color: #00bfff;
+    float: right;
+}
+
+.contractButton1 {
+    float: right;
+    color: #ffffff;
+    background: #00bfff;
+    border: solid 1px #808080;
+    padding: 5px 20px;
+}
+
+.amberButton {
+    background-color: orange;
+}
+
+.greenButton {
+    background-color: greenyellow;
+}
+
+.blueButton {
+    background-color: deepskyblue;
+}

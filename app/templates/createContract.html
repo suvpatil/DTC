@@ -1,0 +1,143 @@
+<div id="parenrCreateContractDiv" ng-controller="createContractController as createCtrl">
+<div id="createContractDiv" >
+    <h2>Create Contract</h2>
+    <hr>
+
+    <h3 class="contractHeading">Payment details</h3>
+    <div class="wrapperDiv">
+<div>
+    <label for="" class=".col-md-4"><strong>Select Buyer</strong></label><br/>
+    <select ng-model="createCtrl.selecteTraderdName" class="" ng-change="createCtrl.getTraderDetails()">
+        <option ng-repeat="item in createCtrl.traderList" value="{{item.loginUserName}}">{{item.traderName}}</option>
+    </select>
+
+</div>
+<table class="table table-bordered contractTable">
+    <thead>
+        <th class=".col-md-2 heading1">Company</th>
+        <th class=".col-md-2 heading2">Bank</th>
+        <th class=".col-md-2 heading3">VAT</th>
+        <th class=".col-md-2 heading4">IBAN</th>
+        <th class=".col-md-2 heading5">Address</th>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td class="contractRow">{{createCtrl.traderName}}</td>
+            <td class="contractRow">{{createCtrl.bank}}</td>
+            <td class="contractRow">{{createCtrl.vat}}</td>
+            <td class="contractRow">{{createCtrl.iban}}</td>
+            <td class="contractRow">{{createCtrl.address}}</td>
+            
+        </tr>
+    </tbody>
+</table>
+
+<ul class="contractList">
+    <li class="listItem1"><strong>Purchase Order</strong><br><input type="text" class="contractListInput" ng-model="createCtrl.purchaseOrder"/></li>
+    <li class="listItem1"><strong>Total Price</strong><br><input type="text" class="contractListInput" ng-model="createCtrl.totalPrice"/></li>
+    <li class="listItem1"><strong>Currency</strong><br>
+        <select ng-model="createCtrl.currency" class="contractDropDown">
+            <option value="EURO">EURO</option>
+            <option value="USD">USD</option>
+            <option value="POUND">POUND</option>
+        </select>
+    </li>
+    <li class="listItem1 contractLI"><strong>Delivery Date</strong><br>
+        <input type="date" ng-model="createCtrl.deliveryDate"/>
+    </li>
+    <li class="listItem1"><strong>Incoterm</strong><br>
+        <select ng-model="createCtrl.incoterm" class="contractDropDown">
+            <option value="Cost and Freight">Cost and Freight</option>
+            <option value="Cost Insurance and Freight">Cost Insurance and Freight</option>
+            <option value="Delivered At Frontier">Delivered At Frontier</option>
+            <option value="Delivered Duty Paid">Delivered Duty Paid</option>
+            <option value="Delivered At Frontier">Delivered At Frontier</option>
+        </select>
+    </li>
+</ul>
+
+<div class="paymentConditions">
+    <p><strong>Payment Conditions</strong></p>
+    <input type="text" class="paymentText" ng-model="createCtrl.paymentConditions"/>
+</div>
+</div>
+</div>
+
+
+<h3 class="contractHeading">Articles</h3>
+<div class="wrapperDiv">
+<table class="table table-bordered contractArticle">
+    <thead>
+        <th class=".col-md-2">Article ID</th>
+        <th class=".col-md-2">Description</th>
+        <th class=".col-md-2">Quantity</th>
+    </thead>
+
+    <tbody>
+        <!--<tr>
+            <td class="contractRow">BY5555</td>
+            <td class="contractRow">Brown beer</td>
+            <td class="contractRow">22</td>
+        </tr>
+        <tr>
+            <td class="contractRow">BY1515649494</td>
+            <td class="contractRow">Light beer</td>
+            <td class="contractRow">500</td>
+        </tr>-->
+        <tr>
+            <td class="contractRow"><input type="text" ng-model="createCtrl.articleId1"/></td>
+            <td class="contractRow"><input type="text" ng-model="createCtrl.articleDesc1"/></td>
+            <td class="contractRow"><input type="text" ng-model="createCtrl.articleQuantity1"/></td>
+        </tr>
+        <tr>
+            <td class="contractRow"><input type="text" ng-model="createCtrl.articleId2"/></td>
+            <td class="contractRow"><input type="text" ng-model="createCtrl.articleDesc2"/></td>
+            <td class="contractRow"><input type="text" ng-model="createCtrl.articleQuantity2"/></td>
+        </tr>
+    </tbody>
+</table>
+<!--<input type="button" value="Upload CSV" class="contractButton"/>-->
+</div>
+
+
+<h3 class="contractHeading">Delivery Address</h3>
+<div class="wrapperDiv">
+<ul class="contractList">
+    <li class="listItem1"><strong>Street</strong><br><input type="text" class="contractListInput"  ng-readonly="true" value="{{createCtrl.address_street}}"/></li>
+    <li class="listItem1"><strong>Number</strong><br><input type="text" class="contractListInput" ng-readonly="true" value="{{createCtrl.address_street_number}}"/></li><br>
+    <li class="listItem1"><strong>Postal Code</strong><br><input type="text" class="contractListInput" ng-readonly="true" value="{{createCtrl.address_postalcode}}"/></li>
+    <li class="listItem1 contractLI"><strong>City</strong><br><input type="text" class="contractListInput" ng-readonly="true" value="{{createCtrl.address_city}}"/></li>
+    <li class="listItem1 contractLI"><strong>Country</strong><br><input type="text" class="contractListInput" ng-readonly="true" value="{{createCtrl.address_country}}"/></li>
+</ul>
+</div>
+
+
+<h3 class="contractHeading">Extra Services</h3>
+<div class="wrapperDiv">
+<table class="table table-bordered servicesTable">
+    <thead>
+        <th class=".col-md-2">Buyer</th>
+        <th class=".col-md-2">Seller</th>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td class="contractRow"><input type="checkbox" class="serviceCheckbox" ng-model="createCtrl.buyerPaymentConfrimation"/> Payment confirmation</td>
+            <td class="contractRow"><input type="checkbox" class="serviceCheckbox" ng-model="createCtrl.sellerInfoCounterParty"/> Information on Counterparty</td>
+        </tr>
+        <tr>
+            <td class="contractRow"><input type="checkbox" class="serviceCheckbox" ng-model="createCtrl.buyerBankCommitment"/> Bank Payment Commitment</td>
+            <td class="contractRow"><input type="checkbox" class="serviceCheckbox" ng-model="createCtrl.sellerForfaitInvoice"/> Forfaiting of invoice</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<br>
+<input type="button" value="Save contract" class="contractButton1" ng-click="createCtrl.saveContract()"/>
+<input type="button" value="Close" class="contractButton1"/>
+
+</div>
+</div>
+</div>

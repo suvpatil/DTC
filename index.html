@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <!--Node Module dependencies start-->
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./node_modules/angular-route/angular-route.min.js"></script>
+    <script src="./node_modules/angular-base64/angular-base64.js"></script>
+   
+    <!--Node Module dependencies ends-->
+
+    <!--Controllers dependencies start-->
+    <script src="./app/controller/mainController.js"></script>
+    <script src="./app/controller/loginController.js"></script>
+    <script src="./app/controller/contractDetailController.js"></script>
+    <script src="./app/controller/registerBankController.js"></script>
+    <script src="./app/controller/registerTraderController.js"></script>
+    <script src="./app/controller/createContractController.js"></script>
+    <script src="./app/controller/updateContractController.js"></script>
+    <!--Conntrollers dependencies end-->
+
+    <!--Services dependencies start-->
+    <script src="./app/services/loginService.js"></script>
+    <script src="./app/services/contractDetailService.js"></script>
+    <script src="./app/services/registerBankService.js"></script>
+    <script src="./app/services/registerTraderService.js"></script>
+    <script src="./app/services/reqResponseService.js"></script>
+    <script src="./app/services/createContractService.js"></script>
+    <script src="./app/services/updateContractService.js"></script>
+    <!--Services dependencies end-->
+
+    <!--CSS dependencies start-->
+    <link rel="stylesheet" href="./app/css/style.css" />
+    <link rel="stylesheet" href="./app/css/digitaltradechain.css" />
+    <!--CSS dependencies end-->
+
+</head>
+
+<body ng-app="mainApp">
+    <div ng-controller="mainController as mainCntrl">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" class="active">Digital Trade Chain</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active" ng-if="!loginSuccess"><a href="#">Login</a></li>
+                    <!--<li><a href="#registerbank" ng-if="!loginSuccess">Register Bank</a></li>
+                    <li><a href="#registerTrader" ng-if="!loginSuccess">Register Buyer/Seller</a></li>-->
+                    <li ng-if="loginSuccess" ng-class="{active:activeMenu == 'contractDetails'}"><a href="#contractdetails">Contract Details</a></li>
+                    <li ng-if="(loginSuccess) && (role == 'buyer')" ng-class="{active:activeMenu == 'createcontract'}"><a href="#createcontract"> Create Contract</a></li>
+                    <!--<li ng-if="loginSuccess"><a href="#" ng-class="{active:activeMenu == 'editcontract'}"> Update Contract</a></li>-->
+                    <li ng-if="loginSuccess"><a href="#">Logout</a></li> 
+                   
+                </ul>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div>
+                <div ng-view> </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

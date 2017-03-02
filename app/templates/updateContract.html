@@ -1,0 +1,191 @@
+<div id="parentUpdateContractDiv" ng-controller="updateContractController as updateCtrl">
+<div id="updateContractDiv" >
+    <h2>Update Contract</h2>
+    <hr>
+
+    <h3 class="contractHeading">Payment details</h3>
+    <div class="wrapperDiv">
+<!--<div>
+    <label for="" class=".col-md-4"><strong>Select Buyer</strong></label><br/>
+    <select ng-model="createCtrl.selecteTraderdName" class="" ng-change="createCtrl.getTraderDetails()">
+        <option ng-repeat="item in createCtrl.traderList" value="{{item.loginUserName}}">{{item.traderName}}</option>
+    </select>
+
+</div>-->
+<table class="table table-bordered contractTable">
+    <thead>
+        <th class=".col-md-2 heading1">Company</th>
+        <th class=".col-md-2 heading2">Bank</th>
+        <th class=".col-md-2 heading3">VAT</th>
+        <th class=".col-md-2 heading4">IBAN</th>
+        <th class=".col-md-2 heading5">Address</th>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td class="contractRow">{{updateCtrl.SELECTED_BUYER_NAME}}</td>
+            <td class="contractRow">ABC</td>
+            <td class="contractRow">123456789</td>
+            <td class="contractRow">FR 124545</td>
+            <td class="contractRow">8,Park Street,75008,Paris,France</td>
+            
+        </tr>
+    </tbody>
+</table>
+
+<ul class="contractList">
+    <li class="listItem1"><strong>Purchase Order</strong><br><input type="text" class="contractListInput" ng-model="updateCtrl.PURCHASE_ORDER" ng-readonly="true"/></li>
+    <li class="listItem1"><strong>Total Price</strong><br><input type="text" class="contractListInput" ng-model="updateCtrl.TOTAL_PRICE" ng-readonly="true"/></li>
+    <li class="listItem1"><strong>Currency</strong><br>
+        <!--<select ng-model="createCtrl.currency" class="contractDropDown">
+            <option value="EURO">EURO</option>
+            <option value="USD">USD</option>
+            <option value="POUND">POUND</option>
+        </select>-->
+        <input type="text" class="contractListInput" ng-model="updateCtrl.CURRENCY" ng-readonly="true"/>
+    </li>
+    <li class="listItem1 contractLI"><strong>Delivery Date</strong><br>
+        <input type="text" ng-model="updateCtrl.DELIVERY_DATE" ng-readonly="true"/>
+    </li>
+    <li class="listItem1"><strong>Incoterm</strong><br>
+        <!--<select ng-model="createCtrl.incoterm" class="contractDropDown">
+            <option value="Cost and Freight">Cost and Freight</option>
+            <option value="Cost,Insurance and Freight">Cost Insurance and Freight</option>
+            <option value="Delivered At Frontier">Delivered At Frontier</option>
+            <option value="Delivered Duty Paid">Delivered Duty Paid</option>
+            <option value="Delivered At Frontier">Delivered At Frontier</option>
+        </select>-->
+        <input type="text" class="contractListInput" ng-model="updateCtrl.INCOTERM" ng-readonly="true"/>
+        
+    </li>
+</ul>
+
+<div class="paymentConditions">
+    <p><strong>Payment Conditions</strong></p>
+    <input type="text" class="paymentText" ng-model="updateCtrl.PAYMENT_CONDITIONS" ng-readonly="true"/>
+</div>
+</div>
+</div>
+
+
+<h3 class="contractHeading">Articles</h3>
+<div class="wrapperDiv">
+<table class="table table-bordered contractArticle">
+    <thead>
+        <th class=".col-md-2">Article ID</th>
+        <th class=".col-md-2">Description</th>
+        <th class=".col-md-2">Quantity</th>
+    </thead>
+
+    <tbody>
+        <!--<tr>
+            <td class="contractRow">BY5555</td>
+            <td class="contractRow">Brown beer</td>
+            <td class="contractRow">22</td>
+        </tr>
+        <tr>
+            <td class="contractRow">BY1515649494</td>
+            <td class="contractRow">Light beer</td>
+            <td class="contractRow">500</td>
+        </tr>-->
+        <tr>
+            <td class="contractRow"><input type="text" ng-model="updateCtrl.ARTICLE_ID1" ng-readonly="true"/></td>
+            <td class="contractRow"><input type="text" ng-model="updateCtrl.ARTICLE_DESC1" ng-readonly="true"/></td>
+            <td class="contractRow"><input type="text" ng-model="updateCtrl.ARTICLE_QUANTITY1" ng-readonly="true"/></td>
+        </tr>
+        <tr>
+            <td class="contractRow"><input type="text" ng-model="updateCtrl.ARTICLE_ID2" ng-readonly="true"/></td>
+            <td class="contractRow"><input type="text" ng-model="updateCtrl.ARTICLE_DESC2" ng-readonly="true"/></td>
+            <td class="contractRow"><input type="text" ng-model="updateCtrl.ARTICLE_QUANTITY2" ng-readonly="true"/></td>
+        </tr>
+    </tbody>
+</table>
+<!--<input type="button" value="Upload CSV" class="contractButton"/>-->
+</div>
+
+
+<h3 class="contractHeading">Delivery Address</h3>
+<div class="wrapperDiv">
+<ul class="contractList">
+    <li class="listItem1"><strong>Street</strong><br><input type="text" class="contractListInput"  ng-readonly="true" value="Park Street"/></li>
+    <li class="listItem1"><strong>Number</strong><br><input type="text" class="contractListInput" ng-readonly="true" value="8"/></li><br>
+    <li class="listItem1"><strong>Postal Code</strong><br><input type="text" class="contractListInput" ng-readonly="true" value="75008"/></li>
+    <li class="listItem1 contractLI"><strong>City</strong><br><input type="text" class="contractListInput" ng-readonly="true" value="Paris"/></li>
+    <li class="listItem1 contractLI"><strong>Country</strong><br><input type="text" class="contractListInput" ng-readonly="true" value="France"/></li>
+</ul>
+</div>
+
+
+<h3 class="contractHeading">Extra Services</h3>
+<div class="wrapperDiv">
+<table class="table table-bordered servicesTable">
+    <thead>
+        <th class=".col-md-2">Buyer</th>
+        <th class=".col-md-2">Seller</th>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td class="contractRow"><input type="checkbox" class="serviceCheckbox" ng-model="updateCtrl.BUYER_PAYMENT_CONFIRNMATION"/> Payment confirmation</td>val{{updateCtrl.BUYER_PAYMENT_CONFIRNMATION}}
+            <td class="contractRow"><input type="checkbox" class="serviceCheckbox" ng-model="updateCtrl.SELLER_INFO_COUNTER_PARTY"/> Information on Counterparty</td>
+        </tr>
+        <tr>
+            <td class="contractRow"><input type="checkbox" class="serviceCheckbox" ng-model="updateCtrl.BUYER_BANK_COMMITMENT"/> Bank Payment Commitment</td>
+            <td class="contractRow"><input type="checkbox" class="serviceCheckbox" ng-model="updateCtrl.SELLER_FOR_FAIT_INVOICE"/> Forfaiting of invoice</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<br>
+
+<div class="actionrDiv">
+    <table style="width:100%">
+            <thead>
+                <th style="text-align:center;">Invoice Status</th>
+                <th style="text-align:center;">Payment Status</th>
+                <th style="text-align:center;">Contract Status</th>
+                <th style="text-align:center;">Delivery Status</th>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><input type="button" ng-readonly="true" value="{{updateCtrl.INVOICE_STATUS}}" style="margin-left: 140px;margin-top: 5px;text-align:center;" ng-disabled="role == 'buyer'" 
+                            ng-click="updateCtrl.confirmContract(updateCtrl.PURCHASE_ORDER,'INVOICE_STATUS',updateCtrl.INVOICE_STATUS)" class="amberButton"/></td>
+                    <td><input type="button" ng-readonly="true" value="{{updateCtrl.PAYMENT_STATUS}}" style="margin-left: 120px;margin-top: 5px;text-align:center;" ng-disabled="(role == 'buyer') && (updateCtrl.CONTRACT_STATUS != 'Deliver confirmed by buyer')"
+                            ng-click="updateCtrl.confirmContract(updateCtrl.PURCHASE_ORDER,'PAYMENT_STATUS',updateCtrl.PAYMENT_STATUS)"
+                            ng-class="{amberButton : updateCtrl.PAYMENT_STATUS == 'Not confirmed',greenButton : updateCtrl.PAYMENT_STATUS == 'Payment settled',blueButton : updateCtrl.PAYMENT_STATUS == 'Payment Initiated by Buyer'}"/></td>
+                    <td><input type="button" ng-readonly="true" value="{{updateCtrl.CONTRACT_STATUS}}" style="margin-left: 100px;margin-top: 5px;text-align:center;" ng-disabled="(role == 'buyer') && (updateCtrl.CONTRACT_STATUS != 'Delivery ongoing')"
+                            ng-click="updateCtrl.confirmContract(updateCtrl.PURCHASE_ORDER,'CONTRACT_STATUS',updateCtrl.CONTRACT_STATUS)" 
+                            ng-class="{amberButton : updateCtrl.CONTRACT_STATUS == 'Started',greenButton : updateCtrl.CONTRACT_STATUS == 'Completed',blueButton : updateCtrl.CONTRACT_STATUS == 'Delivery ongoing' || updateCtrl.CONTRACT_STATUS == 'Delivery confirmed by buyer'}"/></td>
+                    <td><input type="button" ng-readonly="true" value="{{updateCtrl.DELIVERY_STATUS}}" style="margin-left: 130px;margin-top: 5px;text-align:center;" ng-disabled="role == 'buyer'"
+                            ng-click="updateCtrl.confirmContract(updateCtrl.PURCHASE_ORDER,'DELIVERY_STATUS',updateCtrl.DELIVERY_STATUS)"
+                            ng-class="{amberButton : updateCtrl.DELIVERY_STATUS == 'Point not reached',greenButton : updateCtrl.DELIVERY_STATUS == 'Delivered'}"/></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div ng-if="updateCtrl.CONTRACT_STATUS == 'Delivery ongoing'"  style="margin-right: 10px;margin-top: 10px;">
+                            <input type="text" ng-readonly="true" ng-model="updateCtrl.DELIVERY_TRACKING_ID"/> 
+                            <label >Trackin ID</label>
+                        </div>
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+    </table>
+
+</div>
+
+
+<br>
+<div>
+<input type="button" value="Decline Order" class="contractButton1" style="margin-left: 25px;" ng-if="(!updateCtrl.IS_ORDER_CONFIRM) && (role == 'buyer')"/>
+<input type="button" value="Confirm Order" class="contractButton1" ng-click="updateCtrl.confirmContract(updateCtrl.PURCHASE_ORDER,'IS_ORDER_CONFIRM',updateCtrl.IS_ORDER_CONFIRM)" ng-if="(!updateCtrl.IS_ORDER_CONFIRM) && (role == 'buyer')"/>
+<br><br>
+</div>
+</div>
+</div>
+</div>

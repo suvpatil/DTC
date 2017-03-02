@@ -1,0 +1,26 @@
+[
+    {
+        "loginUserName": "sachin_seller",
+        "traderName": "John Dheere",
+        "addr_street": "Park Street",
+        "addr_streetNumber": "12",
+        "addr_postalCode": "42105",
+        "addr_city": "New York",
+        "addr_country": "Unitest States",
+        "vat": "123456789",
+        "iban": "US 12345",
+        "bank": "KBC"
+    },
+    {
+        "loginUserName": "abc_buyer",
+        "traderName": "Boisoon",
+        "addr_street": "Rui Chambiges",
+        "addr_streetNumber": "8",
+        "addr_postalCode": "75008",
+        "addr_city": "Paris",
+        "addr_country": "France",
+        "vat": "123456789",
+        "iban": "FR 124545",
+        "bank": "ABC"
+    }
+]
