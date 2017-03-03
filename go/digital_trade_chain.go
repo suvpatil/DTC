@@ -323,7 +323,8 @@ func doEvery(d time.Duration, f func(time.Time)) {
 }
 
 func helloworld(t time.Time) {	
-	fmt.Printf("%v: Hello, World!\n", t)  //time compare	
+	//fmt.Printf("%v: Hello, World!\n", t)  //time compare
+	t.getContractInstanceDetailsForTrader(stub, Id)
 }
 
 func main() {
