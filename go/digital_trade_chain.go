@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"strings"
-	//"time"
+	"time"
 	"math/rand"
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	"strconv"
