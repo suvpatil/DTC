@@ -316,14 +316,14 @@ func (t *DtcChaincode) getContractInstanceDetailsForTrader(stub shim.ChaincodeSt
 	return nil, errors.New("Failed to get the required Obj")
 }
 
-func doEvery(d time.Duration, f func(time.Time)) {
+func doEvery(d time.Duration, f func(stub shim.ChaincodeStubInterface, time.Time)) {
 	for x := range time.Tick(d) {
 		f(x)
 	}
 }
 
-func (t *DtcChaincode) helloworld(stub shim.ChaincodeStubInterface , t time.Time) {	
-	//fmt.Printf("%v: Hello, World!\n", t)  //time compare
+func (t *DtcChaincode) helloworld(stub shim.ChaincodeStubInterface , s time.Time) {	
+	//fmt.Printf("%v: Hello, World!\n", s)  //time compare
 	Id := ""
 	t.getContractInstanceDetailsForTrader(stub, Id)
 }
