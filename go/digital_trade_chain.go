@@ -322,8 +322,9 @@ func doEvery(d time.Duration, f func(time.Time)) {
 	}
 }
 
-func helloworld(t time.Time) {	
+func (t *DtcChaincode) helloworld(stub shim.ChaincodeStubInterface , t time.Time) {	
 	//fmt.Printf("%v: Hello, World!\n", t)  //time compare
+	Id := ""
 	t.getContractInstanceDetailsForTrader(stub, Id)
 }
 
