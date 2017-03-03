@@ -107,6 +107,7 @@ func (t *DtcChaincode) UpdateStatusDetails(stub shim.ChaincodeStubInterface, arg
 				contractObj.DELIVERY_TRACKING_ID = con.DELIVERY_TRACKING_ID
 				contractObj.DELIVERY_STATUS = con.DELIVERY_STATUS
 				contractObj.PAYMENT_STATUS = con.PAYMENT_STATUS
+				contractObj.INVOICE_STATUS = con.INVOICE_STATUS
 			}
 			
 			if status == "CONTRACT_STATUS" && con.CONTRACT_STATUS == "Ready for shipment"{
@@ -115,6 +116,7 @@ func (t *DtcChaincode) UpdateStatusDetails(stub shim.ChaincodeStubInterface, arg
 				contractObj.DELIVERY_TRACKING_ID = strconv.Itoa(rand.Int())
 				contractObj.DELIVERY_STATUS = con.DELIVERY_STATUS
 				contractObj.PAYMENT_STATUS = con.PAYMENT_STATUS
+				contractObj.INVOICE_STATUS = con.INVOICE_STATUS
 			}
 
 			if status == "CONTRACT_STATUS" && con.CONTRACT_STATUS == "Delivery ongoing"{
@@ -123,6 +125,7 @@ func (t *DtcChaincode) UpdateStatusDetails(stub shim.ChaincodeStubInterface, arg
 				contractObj.CONTRACT_STATUS = "Deliver confirmed by buyer"
 				contractObj.DELIVERY_STATUS = "Delivered"
 				contractObj.PAYMENT_STATUS = con.PAYMENT_STATUS
+				contractObj.INVOICE_STATUS = con.INVOICE_STATUS
 			}
 
 			if status == "PAYMENT_STATUS"{
@@ -130,7 +133,8 @@ func (t *DtcChaincode) UpdateStatusDetails(stub shim.ChaincodeStubInterface, arg
 				contractObj.DELIVERY_TRACKING_ID = con.DELIVERY_TRACKING_ID
 				contractObj.CONTRACT_STATUS = "Deliver confirmed by buyer"
 				contractObj.DELIVERY_STATUS = "Delivered"
-				contractObj.PAYMENT_STATUS = "Payment Initiated by Buyer"				
+				contractObj.PAYMENT_STATUS = "Payment Initiated by Buyer"
+				contractObj.INVOICE_STATUS = con.INVOICE_STATUS
 			}
 
 			if status == "PAYMENT_STATUS" && con.PAYMENT_STATUS == "Payment Initiated by Buyer"{
@@ -138,11 +142,20 @@ func (t *DtcChaincode) UpdateStatusDetails(stub shim.ChaincodeStubInterface, arg
 				contractObj.DELIVERY_TRACKING_ID = con.DELIVERY_TRACKING_ID				
 				contractObj.DELIVERY_STATUS = "Delivered"
 				contractObj.PAYMENT_STATUS = "Payment settled"
-				contractObj.CONTRACT_STATUS = "Completed"			
+				contractObj.CONTRACT_STATUS = "Completed"
+				contractObj.INVOICE_STATUS = con.INVOICE_STATUS
+			}
+			
+			if status == "INVOICE_STATUS"{
+				contractObj.IS_ORDER_CONFIRM = "true"
+				contractObj.DELIVERY_TRACKING_ID = con.DELIVERY_TRACKING_ID				
+				contractObj.DELIVERY_STATUS = "Delivered"
+				contractObj.PAYMENT_STATUS = "Payment settled"
+				contractObj.CONTRACT_STATUS = "Completed"
+				contractObj.INVOICE_STATUS = "Send"
 			}
 
-
-			contractObj.INVOICE_STATUS = con.INVOICE_STATUS
+			//contractObj.INVOICE_STATUS = con.INVOICE_STATUS
 			//contractObj.PAYMENT_STATUS = args[3]
 			//contractObj.CONTRACT_STATUS = args[4]
 			//contractObj.DELIVERY_STATUS = args[5]
@@ -316,7 +329,7 @@ func (t *DtcChaincode) getContractInstanceDetailsForTrader(stub shim.ChaincodeSt
 	return nil, errors.New("Failed to get the required Obj")
 }
 
-func doEvery(d time.Duration, f func(stub shim.ChaincodeStubInterface, time.Time)) {
+/*func doEvery(d time.Duration, f func(stub shim.ChaincodeStubInterface, time.Time)) {
 	for x := range time.Tick(d) {
 		f(x)
 	}
@@ -326,11 +339,11 @@ func (t *DtcChaincode) helloworld(stub shim.ChaincodeStubInterface , s time.Time
 	//fmt.Printf("%v: Hello, World!\n", s)  //time compare
 	Id := ""
 	t.getContractInstanceDetailsForTrader(stub, Id)
-}
+}*/
 
 func main() {	
 	err := shim.Start(new(DtcChaincode))
-	doEvery(3*time.Second, helloworld)
+	//doEvery(3*time.Second, helloworld)
 	if err != nil {
 		fmt.Printf("Error starting Simple chaincode: %s", err)
 	}
