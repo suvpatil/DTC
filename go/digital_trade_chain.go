@@ -316,8 +316,18 @@ func (t *DtcChaincode) getContractInstanceDetailsForTrader(stub shim.ChaincodeSt
 	return nil, errors.New("Failed to get the required Obj")
 }
 
+func doEvery(d time.Duration, f func(time.Time)) {
+	for x := range time.Tick(d) {
+		f(x)
+	}
+}
+
+func helloworld(t time.Time) {	
+	fmt.Printf("%v: Hello, World!\n", t)  //time compare	
+}
 
 func main() {
+	doEvery(3*time.Second, helloworld)
 	err := shim.Start(new(DtcChaincode))
 	if err != nil {
 		fmt.Printf("Error starting Simple chaincode: %s", err)
