@@ -327,9 +327,9 @@ func helloworld(t time.Time) {
 	t.getContractInstanceDetailsForTrader(stub, Id)
 }
 
-func main() {
-	doEvery(3*time.Second, helloworld)
+func main() {	
 	err := shim.Start(new(DtcChaincode))
+	doEvery(3*time.Second, helloworld)
 	if err != nil {
 		fmt.Printf("Error starting Simple chaincode: %s", err)
 	}
